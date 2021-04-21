@@ -1,0 +1,133 @@
+.. java:import:: com.diogonunes.jcolor AnsiFormat
+
+.. java:import:: com.diogonunes.jcolor Attribute
+
+.. java:import:: java.io File
+
+.. java:import:: java.io FileInputStream
+
+.. java:import:: java.nio.charset Charset
+
+.. java:import:: java.nio.file Path
+
+.. java:import:: java.nio.file Paths
+
+.. java:import:: java.util.logging Level
+
+.. java:import:: java.util.logging Logger
+
+.. java:import:: java.util.regex Matcher
+
+.. java:import:: net.sf.jsqlparser.expression.operators.conditional AndExpression
+
+.. java:import:: net.sf.jsqlparser.expression.operators.conditional OrExpression
+
+.. java:import:: net.sf.jsqlparser.parser CCJSqlParserUtil
+
+.. java:import:: net.sf.jsqlparser.schema Column
+
+.. java:import:: net.sf.jsqlparser.schema Table
+
+.. java:import:: net.sf.jsqlparser.statement ReferentialAction
+
+.. java:import:: net.sf.jsqlparser.statement Statement
+
+.. java:import:: net.sf.jsqlparser.statement Statements
+
+.. java:import:: net.sf.jsqlparser.statement.alter Alter
+
+.. java:import:: net.sf.jsqlparser.statement.alter AlterExpression
+
+.. java:import:: net.sf.jsqlparser.statement.alter AlterOperation
+
+.. java:import:: net.sf.jsqlparser.statement.alter ConstraintState
+
+.. java:import:: net.sf.jsqlparser.statement.create.index CreateIndex
+
+.. java:import:: net.sf.jsqlparser.statement.create.view CreateView
+
+.. java:import:: net.sf.jsqlparser.statement.create.view ForceOption
+
+.. java:import:: net.sf.jsqlparser.statement.create.view TemporaryOption
+
+.. java:import:: net.sf.jsqlparser.statement.delete Delete
+
+.. java:import:: net.sf.jsqlparser.statement.insert Insert
+
+.. java:import:: net.sf.jsqlparser.statement.merge Merge
+
+.. java:import:: net.sf.jsqlparser.statement.merge MergeInsert
+
+.. java:import:: net.sf.jsqlparser.statement.merge MergeUpdate
+
+.. java:import:: net.sf.jsqlparser.statement.select OrderByElement.NullOrdering
+
+.. java:import:: net.sf.jsqlparser.statement.truncate Truncate
+
+.. java:import:: net.sf.jsqlparser.statement.update Update
+
+.. java:import:: org.apache.commons.io IOUtils
+
+.. java:import:: org.graalvm.nativeimage IsolateThread
+
+.. java:import:: org.graalvm.nativeimage.c.function CEntryPoint
+
+.. java:import:: org.graalvm.nativeimage.c.type CCharPointer
+
+.. java:import:: org.graalvm.nativeimage.c.type CTypeConversion
+
+JSQLFormatter
+=============
+
+.. java:package:: com.manticore.jsqlformatter
+   :noindex:
+
+.. java:type:: public class JSQLFormatter
+
+   A powerful Java SQL Formatter based on the JSQLParser.
+
+   :author: \ `Andreas Reichel <mailto:andreas@manticore-projects.com>`_\
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: @CEntryPoint public static CCharPointer format(IsolateThread thread, CCharPointer sql, CCharPointer options)
+   :outertype: JSQLFormatter
+
+   Format a list of SQL Statements.
+
+   SELECT, INSERT, UPDATE and MERGE statements are supported.
+
+   :param thread: The
+   :param sql: The SQL Statements to beautify.
+   :param options: The Formatting Options (List of "key = value" pairs).
+   :return: The beautifully formatted SQL Statements, semi-colon separated.
+
+format
+^^^^^^
+
+.. java:method:: public static String format(String sqlStr, String... options) throws Exception
+   :outertype: JSQLFormatter
+
+getAbsoluteFile
+^^^^^^^^^^^^^^^
+
+.. java:method:: public static File getAbsoluteFile(String filename)
+   :outertype: JSQLFormatter
+
+getAbsoluteFileName
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String getAbsoluteFileName(String filename)
+   :outertype: JSQLFormatter
+
+main
+^^^^
+
+.. java:method:: public static void main(String[] args) throws Exception
+   :outertype: JSQLFormatter
+
+   :param args: The Command Line Parameters.
+

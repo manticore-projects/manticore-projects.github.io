@@ -1,0 +1,10 @@
+com.manticore.jsqlformatter
+===========================
+
+.. java:package:: com.manticore.jsqlformatter
+
+.. toctree::
+   :maxdepth: 1
+
+   JSQLFormatter
+
